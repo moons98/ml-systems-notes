@@ -1,0 +1,9 @@
+pdfs/*
+!pdfs/.gitkeep
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp

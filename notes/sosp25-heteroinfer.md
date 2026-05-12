@@ -12,10 +12,17 @@ pdf: ../pdfs/sosp25-heteroinfer.pdf
 
 ## TL;DR
 
-- 모바일 SoC의 GPU+NPU를 **동시에** 쓰는 첫 산업급 LLM 추론 엔진.
-- 기존 엔진은 GPU-only 또는 NPU-only. NPU는 systolic array의 weight-stall 특성 때문에 텐서의 **순서·모양·크기**에 민감해서 raw TFLOPS만 보면 안 됨.
-- GPU를 NPU의 약점(짧은 시퀀스, shape-misalign, 동적 길이)을 메우는 보조 컴퓨팅 + 추가 메모리 채널로 활용. UMA 기반 마이크로초급 동기화로 GPU-NPU 병렬을 실제로 작동시킴.
-- W4A16(weight-only)만 써서 정확도 손실 없이 SOTA 대비 **1.34~6.02× 종단 속도**. Llama-8B prefill 247 tok/s, 디코딩 14 tok/s.
+- **문제**:
+  -  모바일 SoC는 GPU+NPU를 둘 다 갖지만 기존 엔진은 하나만 사용.
+  - NPU는 raw TFLOPS가 높아 보여도 텐서 shape·순서·크기에 민감해 단순 병렬화가 안 됨.
+  - 이기종 간 동기화 비용도 커널 자체보다 비쌌음.
+- **접근**: 
+  - NPU 성능 함정(NPU-1/2/3)을 체계적으로 characterize한 뒤, 텐서를 weight/activation 축으로 쪼개 GPU·NPU가 동시 실행하는 tensor-level heterogeneous parallelism 설계. 
+  - sleep-then-poll로 동기화 비용 제거.
+- **결과**: 
+  - W4A16으로 정확도 손실 없이 SOTA 대비 **1.34~6.02×**. 
+  - Llama-8B prefill 247 tok/s, decode 14 tok/s. 
+  - BW 43→60 GB/s (이론 max의 96%).
 
 ---
 

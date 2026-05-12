@@ -16,8 +16,6 @@ related_papers:
 - 새 병목: **BW가 공유 자원**, **캐시 일관성 관리 비용**, **API 파편화**.
 - 핵심 trade-off: 전송 비용 ↓ vs BW 경쟁 ↑.
 
-(주의: 전통 CS 용어 "Uniform Memory Access"와 이름은 같지만, 모바일·이기종 가속기 맥락에서는 "Unified Memory Architecture" — 즉 CPU/가속기 간 메모리 공유 구조를 가리킴. 이 노트는 후자.)
-
 ## 1. UMA란
 
 **정의**: 시스템 내 모든 프로세서가
@@ -219,8 +217,3 @@ UMA의 "공유"는 **다른 시스템 활동**과도 공유:
 - **Fast sync 패턴** — blocking API sync(수백 μs)가 비싸면, predictable timing + sleep + flag polling으로 수 μs까지 줄임 (HeteroInfer 등에서 사용).
 - **Memory pool 재사용** — buffer 할당/해제·매핑 자체가 비쌈. host↔device 매핑된 슬롯을 미리 잡아 레이어 간 재사용.
 - **Pinned region 한도** — OS는 pin 가능한 메모리를 제한. 너무 많이 잡으면 시스템 불안정.
-
-## See also
-
-- [npu.md](npu.md) — NPU 자체의 systolic 구조와 정적 그래프 제약 (UMA 환경에서 동작하는 가속기 한 종류)
-- [HeteroInfer (SOSP'25)](../notes/sosp25-heteroinfer.md) — UMA의 BW 공유 정량 사례 (단독 40~45 vs GPU+NPU 동시 60 GB/s) + fast sync 패턴 실측

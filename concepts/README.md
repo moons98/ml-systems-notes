@@ -5,10 +5,10 @@ Reusable background notes referenced by paper notes. When the same explanation w
 ## Index
 
 - [npu.md](npu.md) — Systolic array, weight-stall, 정적 그래프 제약, NPU-1/2/3 특성, 실무 우회 패턴
+- [uma.md](uma.md) — Unified Memory Architecture, 캐시 일관성 스펙트럼, 이기종 프로세서 sync, BW 공유 trade-off
 
 ## Candidates (논문 두 번째 등장 시 추출)
 
-- UMA (Unified Memory Architecture) on mobile SoCs
 - W4A16 / weight-only quantization (AWQ, GPTQ 등)
 - Prefill vs decoding phases of LLM inference (TTFT, TPOT, KV cache)
 - Roofline model / arithmetic intensity

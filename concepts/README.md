@@ -7,6 +7,8 @@ Reusable background notes referenced by paper notes. When the same explanation w
 - [npu.md](npu.md) — Systolic array, weight-stall, 정적 그래프 제약, NPU-1/2/3 특성, 실무 우회 패턴
 - [uma.md](uma.md) — Unified Memory Architecture, 캐시 일관성 스펙트럼, 이기종 프로세서 sync, BW 공유 trade-off
 
+- [parallelism/llm-parallelism.md](parallelism/llm-parallelism.md) — Data/Tensor/Pipeline/Sequence/Expert Parallelism, 3D parallelism, ZeRO
+
 ## Candidates (논문 두 번째 등장 시 추출)
 
 - W4A16 / weight-only quantization (AWQ, GPTQ 등)

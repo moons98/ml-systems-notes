@@ -8,6 +8,7 @@ Reusable background notes referenced by paper notes. When the same explanation w
 - [uma.md](uma.md) — Unified Memory Architecture, 캐시 일관성 스펙트럼, 이기종 프로세서 sync, BW 공유 trade-off
 
 - [parallelism/llm-parallelism.md](parallelism/llm-parallelism.md) — Data/Tensor/Pipeline/Sequence/Expert Parallelism, 3D parallelism, ZeRO
+- [parallelism/collective-communication.md](parallelism/collective-communication.md) — All-Reduce/Gather/Scatter/All-to-All/P2P, Ring All-Reduce, NVLink vs IB, overlap
 
 ## Candidates (논문 두 번째 등장 시 추출)
 
